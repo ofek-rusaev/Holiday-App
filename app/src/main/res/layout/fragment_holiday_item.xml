@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="my_holiday"
+            type="com.example.holidayapp.models.HolidayItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.HolidayItemFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/itemDateTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/itemDate"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{my_holiday.date.toString()}"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="DATE" />
+
+        <TextView
+            android:id="@+id/itemLocalNameTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Local Name"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/itemDateTitle" />
+
+        <TextView
+            android:id="@+id/itemLocalName"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{my_holiday.localName.toString()}"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/itemDate"
+            tools:text="LOCAL NAME" />
+
+        <TextView
+            android:id="@+id/itemNameTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/itemLocalNameTitle" />
+
+        <TextView
+            android:id="@+id/itemName"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{my_holiday.name.toString()}"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/itemLocalName"
+            tools:text="NAME" />
+
+        <TextView
+            android:id="@+id/itemCountryCodeTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Country Code"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/itemNameTitle" />
+
+        <TextView
+            android:id="@+id/itemCountryCode"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{my_holiday.countryCode.toString()}"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/itemName"
+            tools:text="COUNTRY CODE" />
+
+        <TextView
+            android:id="@+id/itemFixedTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fixed"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/itemCountryCodeTitle" />
+
+        <TextView
+            android:id="@+id/itemFixed"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{my_holiday.fixed.toString()}"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/itemCountryCode"
+            tools:text="FIXED" />
+
+        <TextView
+            android:id="@+id/itemGlobalTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Global"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/itemFixedTitle" />
+
+        <TextView
+            android:id="@+id/itemGlobal"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{my_holiday.global.toString()}"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/itemFixed"
+            tools:text="GLOBAL" />
+
+        <TextView
+            android:id="@+id/itemCountiesTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Counties"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/itemGlobalTitle" />
+
+        <TextView
+            android:id="@+id/itemCounties"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{my_holiday.counties.toString()}"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/itemGlobal"
+            tools:text="COUNTIES" />
+
+        <TextView
+            android:id="@+id/itemLaunchYearTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Launch Year"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/itemCountiesTitle" />
+
+        <TextView
+            android:id="@+id/itemLaunchYear"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{my_holiday.launchYear.toString()}"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/itemCounties"
+            tools:text="LAUNCH YEAR" />
+
+        <TextView
+            android:id="@+id/itemTypesTitle"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Types"
+            app:layout_constraintStart_toEndOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/itemLaunchYearTitle" />
+
+        <TextView
+            android:id="@+id/itemTypes"
+            style="@style/textStyleRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/itemLaunchYear"
+            tools:text="TYPES" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:src="@drawable/ic_favorite"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

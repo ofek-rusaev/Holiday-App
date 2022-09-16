@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/holidaysListFragment"
+        android:title="Holidays"
+        android:icon="@drawable/ic_holidays" />
+
+    <item android:id="@+id/savedHolidayFragment"
+        android:title="Favorite"
+        android:icon="@drawable/ic_favorite" />
+
+</menu>

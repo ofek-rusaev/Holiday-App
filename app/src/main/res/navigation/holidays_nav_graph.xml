@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/holidays_nav_graph"
+    app:startDestination="@id/holidaysListFragment">
+
+    <fragment
+        android:id="@+id/holidaysListFragment"
+        android:name="com.example.holidayapp.ui.fragments.HolidaysListFragment"
+        android:label="fragment_holidays_list"
+        tools:layout="@layout/fragment_holidays_list" >
+        <action
+            android:id="@+id/action_holidaysListFragment_to_holidayItemFragment"
+            app:destination="@id/holidayItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedHolidayFragment"
+        android:name="com.example.holidayapp.ui.fragments.SavedHolidayFragment"
+        android:label="fragment_saved_holiday"
+        tools:layout="@layout/fragment_saved_holiday" >
+        <action
+            android:id="@+id/action_savedHolidayFragment_to_holidayItemFragment"
+            app:destination="@id/holidayItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/holidayItemFragment"
+        android:name="com.example.holidayapp.ui.fragments.HolidayItemFragment"
+        android:label="fragment_holiday_item"
+        tools:layout="@layout/fragment_holiday_item" >
+        <argument
+            android:name="holidayItem"
+            app:argType="com.example.holidayapp.models.HolidayItem" />
+    </fragment>
+</navigation>
