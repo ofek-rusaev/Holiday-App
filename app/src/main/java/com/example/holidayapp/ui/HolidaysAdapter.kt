@@ -1,5 +1,6 @@
 package com.example.holidayapp.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,8 @@ import com.example.holidayapp.R
 import com.example.holidayapp.models.HolidayItem
 import kotlinx.android.synthetic.main.holiday_item.view.*
 
-class HolidaysAdapter : RecyclerView.Adapter<HolidaysAdapter.HolidayViewHolder>() {
+class HolidaysAdapter(private val isFavoriteView: Boolean) :
+    RecyclerView.Adapter<HolidaysAdapter.HolidayViewHolder>() {
 
     inner class HolidayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -45,13 +47,27 @@ class HolidaysAdapter : RecyclerView.Adapter<HolidaysAdapter.HolidayViewHolder>(
             setOnClickListener {
                 onItemClickListener?.let { it(holiday) }
             }
+
+            if (isFavoriteView) {
+                btnFavorite.visibility = View.INVISIBLE
+            } else {
+                btnFavorite.setOnClickListener {
+                    onFavoriteBtnClickListener?.let { it(holiday) }
+                }
+            }
+
         }
     }
 
+    private var onFavoriteBtnClickListener: ((HolidayItem) -> Unit)? = null
     private var onItemClickListener: ((HolidayItem) -> Unit)? = null
 
     fun setOnItemClickListener(listener: (HolidayItem) -> Unit) {
         onItemClickListener = listener
+    }
+
+    fun setOnFavoriteBtnClickListener(listener: (HolidayItem) -> Unit) {
+        onFavoriteBtnClickListener = listener
     }
 
     override fun getItemCount(): Int {

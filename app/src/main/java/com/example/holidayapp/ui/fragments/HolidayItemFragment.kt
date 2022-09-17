@@ -8,8 +8,6 @@ import com.example.holidayapp.R
 import com.example.holidayapp.databinding.FragmentHolidayItemBinding
 import com.example.holidayapp.ui.HolidaysViewModel
 import com.example.holidayapp.ui.MainActivity
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.fragment_holiday_item.*
 
 class HolidayItemFragment : Fragment(R.layout.fragment_holiday_item) {
 
@@ -24,11 +22,5 @@ class HolidayItemFragment : Fragment(R.layout.fragment_holiday_item) {
 
         binding = FragmentHolidayItemBinding.bind(view)
         binding.myHoliday = holidayItem
-
-        fab.setOnClickListener {
-            viewModel.saveHoliday(holidayItem)
-            Snackbar.make(view, "Holiday saved successfully", Snackbar.LENGTH_SHORT).show()
-        }
-
     }
 }

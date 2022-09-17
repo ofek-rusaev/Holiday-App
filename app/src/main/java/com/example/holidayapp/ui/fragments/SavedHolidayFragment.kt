@@ -75,7 +75,7 @@ class SavedHolidayFragment : Fragment(R.layout.fragment_saved_holiday) {
     }
 
     private fun setupRecyclerView() {
-        holidaysAdapter = HolidaysAdapter()
+        holidaysAdapter = HolidaysAdapter(true)
         rvFavoriteHolidays.apply {
             adapter = holidaysAdapter
             layoutManager = LinearLayoutManager(activity)

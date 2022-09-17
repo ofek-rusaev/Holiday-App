@@ -1,7 +1,6 @@
 package com.example.holidayapp.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
@@ -14,6 +13,7 @@ import com.example.holidayapp.ui.HolidaysAdapter
 import com.example.holidayapp.ui.HolidaysViewModel
 import com.example.holidayapp.utils.Resource
 import com.example.holidayapp.utils.exhaustive
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_holidays_list.*
 
 
@@ -35,6 +35,11 @@ class HolidaysListFragment : Fragment(R.layout.fragment_holidays_list) {
                 R.id.action_holidaysListFragment_to_holidayItemFragment,
                 bundle
             )
+        }
+
+        holidaysAdapter.setOnFavoriteBtnClickListener {
+            viewModel.saveHoliday(it)
+            Snackbar.make(view, "Holiday saved successfully", Snackbar.LENGTH_SHORT).show()
         }
         
         viewModel.holidays.observe(viewLifecycleOwner, Observer { response ->
@@ -61,7 +66,7 @@ class HolidaysListFragment : Fragment(R.layout.fragment_holidays_list) {
     }
 
     private fun setupRecyclerView() {
-        holidaysAdapter = HolidaysAdapter()
+        holidaysAdapter = HolidaysAdapter(false)
         rvAllHolidays.apply {
             adapter = holidaysAdapter
             layoutManager = LinearLayoutManager(activity)
