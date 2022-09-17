@@ -21,6 +21,14 @@ class HolidayItemFragment : Fragment(R.layout.fragment_holiday_item) {
         val holidayItem = args.holidayItem
 
         binding = FragmentHolidayItemBinding.bind(view)
-        binding.myHoliday = holidayItem
+        binding.apply {
+            myHoliday = holidayItem
+
+            itemFixed.text = if (holidayItem.fixed == false) "No" else "Yes"
+            itemGlobal.text = if (holidayItem.global == false) "No" else "Yes"
+            itemCounties.text = if (holidayItem.counties.isNullOrEmpty()) "-" else holidayItem.counties.toString()
+            itemLaunchYear.text = holidayItem.launchYear.toString().ifEmpty { "-" }
+            itemTypes.text = if (holidayItem.types.isNullOrEmpty()) "-" else holidayItem.types.toString()
+        }
     }
 }
